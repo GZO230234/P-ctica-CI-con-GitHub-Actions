@@ -8,6 +8,24 @@ describe('Validación de Contraseña', () => {
     expect(resultado.errores).toHaveLength(0);
   });
 
+  it('rechaza contraseñas menores a 8 caracteres', () => {
+  const resultado = validarPassword('Ab1$');
+  expect(resultado.valido).toBe(false);
+  expect(resultado.errores).toContain('Mínimo 8 caracteres');
+  });
+
+  it('rechaza contraseñas sin letras mayúsculas', () => {
+    const resultado = validarPassword('abcdef1$');
+    expect(resultado.valido).toBe(false);
+    expect(resultado.errores).toContain('Falta al menos una mayúscula');
+  });
+
+  it('rechaza contraseñas sin letras minúsculas', () => {
+    const resultado = validarPassword('ABCDEF1$');
+    expect(resultado.valido).toBe(false);
+    expect(resultado.errores).toContain('Falta al menos una minúscula');
+  });
+
   //Continuar las pruebas aqui abajo dentro del parentesis
 
   it('rechaza contraseñas sin números', () => {
