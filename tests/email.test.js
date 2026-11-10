@@ -13,4 +13,15 @@ describe('Validación de Correo Electrónico', () => {
   it('valida un correo con números y guiones', () => {
     expect(validarCorreo('user-name_123@domain-name.org')).toBe(true);
   });
+
+    it('rechaza un correo sin usuario antes del @', () => {
+    expect(validarCorreo('@example.com')).toBe(false);
+  });
+
+  it('rechaza un correo con extensión de una sola letra', () => {
+    expect(validarCorreo('usuario@example.c')).toBe(false);
+  });
+
+
 });
+
