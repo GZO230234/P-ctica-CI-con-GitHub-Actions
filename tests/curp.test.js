@@ -7,5 +7,11 @@ describe('Validaciones de CURP', () => {
   });
 
   //Continuar las pruebas aqui abajo dentro del parentesis
+  it('valida correctamente en minúsculas convirtiéndolas', () => {
+    expect(validarCURP('xaxx010101hdfrrr09')).toBe(true);
+  });
+  it('rechaza CURP con caracteres especiales', () => {
+    expect(validarCURP('XAXX010101HDFR*09')).toBe(false);
+  });
 
 });
