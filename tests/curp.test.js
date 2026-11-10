@@ -7,5 +7,11 @@ describe('Validaciones de CURP', () => {
   });
 
   //Continuar las pruebas aqui abajo dentro del parentesis
+  it('rechaza un CURP con formato incorrecto (letras faltantes)', () => {
+    expect(validarCURP('XAXX010101HDF')).toBe(false);
+  });
 
+  it('rechaza un CURP con sexo inválido', () => {
+    expect(validarCURP('XAXX010101XDFRRR09')).toBe(false);
+  });
 });
