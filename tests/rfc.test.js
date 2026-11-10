@@ -7,5 +7,13 @@ describe('Validaciones de RFC', () => {
   });
 
   //Continuar las pruebas aqui abajo dentro del parentesis
+
+
+  it('rechaza tipos de datos incorrectos', () => {
+    expect(validarRFC({})).toBe(false);
+  });
+  it('valida RFC con ampersand si aplica', () => {
+    expect(validarRFC('X&XX010101001')).toBe(true);
+  });
   
 });
