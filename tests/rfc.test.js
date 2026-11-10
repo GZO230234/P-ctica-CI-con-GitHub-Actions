@@ -7,5 +7,12 @@ describe('Validaciones de RFC', () => {
   });
 
   //Continuar las pruebas aqui abajo dentro del parentesis
-  
+    it('rechaza un RFC corto', () => {
+    expect(validarRFC('XAXX010101')).toBe(false);
+  });
+
+  it('rechaza valores vacíos o nulos', () => {
+    expect(validarRFC('')).toBe(false);
+    expect(validarRFC(null)).toBe(false);
+  });
 });
