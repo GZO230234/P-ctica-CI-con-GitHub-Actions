@@ -7,5 +7,15 @@ describe('Validaciones de RFC', () => {
   });
 
   //Continuar las pruebas aqui abajo dentro del parentesis
+  // 8 //
+  it('rechaza RFC con espacios en blanco internos', () => {
+    expect(validarRFC('XAXX 010101')).toBe(false);
+  });
+  it('rechaza RFC con letras al final no alfanuméricas', () => {
+    expect(validarRFC('XAXX010101A#1')).toBe(false);
+  });
+  it('acepta letras minúsculas transformándolas', () => {
+    expect(validarRFC('xaxx010101001')).toBe(true);
+  });
   
 });
