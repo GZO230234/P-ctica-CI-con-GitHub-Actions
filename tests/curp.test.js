@@ -7,5 +7,8 @@ describe('Validaciones de CURP', () => {
   });
 
   //Continuar las pruebas aqui abajo dentro del parentesis
-
+it('rechaza si se pasa un booleano', () => {
+       expect(validarCURP(true)).toBe(false);
+     });
 });
+
