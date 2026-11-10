@@ -14,7 +14,16 @@ describe('Validación de Correo Electrónico', () => {
     expect(validarCorreo('user-name_123@domain-name.org')).toBe(true);
   });
 
-    it('rechaza un correo sin usuario antes del @', () => {
+  // 10 - Pruebas faltantes (hecas por luis manuel Luis Eduardo tomo por error las del 11)
+  it('rechaza un correo sin el símbolo @', () => {
+    expect(validarCorreo('userexample.com')).toBe(false);
+  });
+  it('rechaza un correo sin dominio', () => {
+    expect(validarCorreo('usuario@')).toBe(false);
+  });
+
+  // 11 - luis eduardo ruiz muro
+  it('rechaza un correo sin usuario antes del @', () => {
     expect(validarCorreo('@example.com')).toBe(false);
   });
 
